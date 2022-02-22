@@ -1,6 +1,6 @@
 <?php
   //conexion a la bbd
-  require_once 'includes/conexion.php';
+  require_once '../includes/conexion.php';
 
   //Recojer datos del formulario
   if(isset($_POST)){
@@ -50,7 +50,7 @@
 
 
   //redirigir  al index
-  header("location: index.php");
+  header("location: ../index.php");
 
 
 

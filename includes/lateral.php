@@ -1,6 +1,16 @@
 <!-- BARRA LATERAL -->
 <aside id="sidebar">
 
+        <div id="buscador" class="bloque">  
+          <h3>Buscar</h3>
+
+          <form action="buscar.php" method="POST">
+            <input type="text" name="busqueda">
+            <input type="submit" value="Buscar">
+          </form>
+        </div>
+
+
       <?php if(isset($_SESSION['usuario'])) :?>
         <div id="usuario-logueado" class="bloque">
           <h3><?='Bienvenido: '.$_SESSION['usuario']['nombre'].' '. $_SESSION['usuario']['apellidos']?></h3>
@@ -8,9 +18,10 @@
           <a class="boton boton-verde" href="crear-entrada.php">Crear entradas</a>
           <a class="boton" href="crear-categoria.php">Crear categoria</a>
           <a class="boton boton-naranja" href="mis-datos.php">Mis datos</a>
-          <a class="boton boton-rojo" href="cerrar.php">Cerrar Sesion</a>
+          <a class="boton boton-rojo" href="acciones/cerrar.php">Cerrar Sesion</a>
         </div>
       <?php endif;?>
+      
       
 
       <?php if(!isset($_SESSION['usuario'])) :?>
@@ -23,7 +34,7 @@
               <h3><?=$_SESSION['error_login'];?></h3>
             </div>
           <?php endif;?>
-          <form action="login.php" method="POST">
+          <form action="acciones/login.php" method="POST">
             <label for="email">Email</label>
             <input type="email" name="email">
             
@@ -48,7 +59,7 @@
           
           <?php endif;?>
 
-          <form action="registro.php" method="POST">
+          <form action="acciones/registro.php" method="POST">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre">
             <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''?>
